@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name ="driverDetails")
+@Table(name ="driverAddress")
 public class DriverAddress {
 	
 	@Id
