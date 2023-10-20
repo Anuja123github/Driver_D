@@ -40,7 +40,7 @@ public class DriverAddressDetailsImpl implements DriverAddressDetails {
 
 	@Override
 	public DriverAddress findByCity(String city) {
-	DriverAddress search =	driverAddressRepository.findyByCity(city);
+	DriverAddress search =	driverAddressRepository.findByCity(city);
 		return  search;
 	}
 

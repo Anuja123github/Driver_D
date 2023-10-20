@@ -8,6 +8,6 @@ import com.driver.model.DriverAddress;
 @Repository
 public interface DriverAddressRepository extends JpaRepository<DriverAddress,Integer > {
 	
-	public DriverAddress findyByCity (String city);
+	public DriverAddress findByCity (String city);
 
 }
