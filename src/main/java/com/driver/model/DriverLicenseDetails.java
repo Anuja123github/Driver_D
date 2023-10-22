@@ -1,6 +1,6 @@
 package com.driver.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,26 +15,34 @@ public class DriverLicenseDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String SSN;
-	private Date licenseIssuedDate;
+	private String ssn;
+	private LocalDate licenseIssuedDate;
 	private String licenseIssuedState;
 	private String licenseNumber;
 	private String gender;
 	private String maritialStatus;
 
-	public String getSSN() {
-		return SSN;
+	public int getId() {
+		return id;
 	}
 
-	public void setSSN(String sSN) {
-		SSN = sSN;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public Date getLicenseIssuedDate() {
+	public String getSsn() {
+		return ssn;
+	}
+
+	public void setSsn(String ssn) {
+		this.ssn = ssn;
+	}
+
+	public LocalDate getLicenseIssuedDate() {
 		return licenseIssuedDate;
 	}
 
-	public void setLicenseIssuedDate(Date licenseIssuedDate) {
+	public void setLicenseIssuedDate(LocalDate licenseIssuedDate) {
 		this.licenseIssuedDate = licenseIssuedDate;
 	}
 
@@ -72,9 +80,9 @@ public class DriverLicenseDetails {
 
 	@Override
 	public String toString() {
-		return "DriverLicenseDetails [SSN=" + SSN + ", licenseIssuedDate=" + licenseIssuedDate + ", licenseIssuedState="
-				+ licenseIssuedState + ", licenseNumber=" + licenseNumber + ", gender=" + gender + ", maritialStatus="
-				+ maritialStatus + "]";
+		return "DriverLicenseDetails [id=" + id + ", ssn=" + ssn + ", licenseIssuedDate=" + licenseIssuedDate
+				+ ", licenseIssuedState=" + licenseIssuedState + ", licenseNumber=" + licenseNumber + ", gender="
+				+ gender + ", maritialStatus=" + maritialStatus + "]";
 	}
 
 }
