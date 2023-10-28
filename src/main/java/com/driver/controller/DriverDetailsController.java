@@ -30,6 +30,7 @@ public class DriverDetailsController {
 		return ResponseEntity.ok().body(driverDetails1);
 	}
 	
+	@PostMapping("/updateDriverDetails")
 	public ResponseEntity<DriverDetails> updateDriverDetails(@RequestBody DriverDetails driverDetails) {
 		
 		DriverDetails driverDetails1 = driverDetailsService.updateDriverDetails(driverDetails);
