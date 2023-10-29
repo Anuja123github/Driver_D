@@ -18,7 +18,7 @@ public class DriverDetails {
 	private int policyId;
 	private String firstname;
 	private String lastname;
-	private String Dob;
+	private String dob;
 	private String email;
 	private String mobile;
 
@@ -63,11 +63,11 @@ public class DriverDetails {
 	}
 
 	public String getDob() {
-		return Dob;
+		return dob;
 	}
 
 	public void setDob(String dob) {
-		Dob = dob;
+		this.dob = dob;
 	}
 
 	public String getEmail() {
@@ -105,7 +105,7 @@ public class DriverDetails {
 	@Override
 	public String toString() {
 		return "DriverDetails [id=" + id + ", policyId=" + policyId + ", firstname=" + firstname + ", lastname="
-				+ lastname + ", Dob=" + Dob + ", email=" + email + ", mobile=" + mobile + ", driverAddress="
+				+ lastname + ", dob=" + dob + ", email=" + email + ", mobile=" + mobile + ", driverAddress="
 				+ driverAddress + ", driverLicenseDetails=" + driverLicenseDetails + "]";
 	}
 

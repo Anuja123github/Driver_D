@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.driver.dto.ApiResponseDto;
+import com.driver.dto.DriverDetailsDto;
 import com.driver.model.DriverDetails;
 import com.driver.service.DriverDetailsService;
 
@@ -91,5 +92,12 @@ public class DriverDetailsController {
 		
 		DriverDetails driverDetails = driverDetailsService.getByMobile(mobile);
 		return ResponseEntity.ok().body(driverDetails);
+	}
+	
+	@GetMapping("/getDriverPolicyDetails/{id}")
+	public ResponseEntity<DriverDetailsDto> getDriverPolicyDetails(@PathVariable("id") Integer id) {
+		
+		DriverDetailsDto detailsDto = driverDetailsService.getDriverPolicyDetails(id);
+		return ResponseEntity.ok().body(detailsDto);
 	}
 }

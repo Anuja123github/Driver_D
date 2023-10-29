@@ -1,8 +1,8 @@
 package com.driver.service;
 
 import java.util.List;
-import java.util.Optional;
 
+import com.driver.dto.DriverDetailsDto;
 import com.driver.model.DriverDetails;
 
 public interface DriverDetailsService {
@@ -10,6 +10,8 @@ public interface DriverDetailsService {
 	public DriverDetails saveDriverDetails(DriverDetails driverDetails);
 	
 	public DriverDetails getDriverDetails(Integer id);
+	
+	public DriverDetailsDto getDriverPolicyDetails(Integer id);
 	
 	public DriverDetails updateDriverDetails(DriverDetails driverDetails);
 	
