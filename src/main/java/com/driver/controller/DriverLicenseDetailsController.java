@@ -22,14 +22,22 @@ import com.driver.dto.ApiResponseDto;
 import com.driver.model.DriverLicenseDetails;
 import com.driver.service.DriverLicenseDetailsService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
-@RequestMapping("/icensedetails")
+@RequestMapping("/licensedetails")
 public class DriverLicenseDetailsController {
 
 	@Autowired
 	private DriverLicenseDetailsService licenseDetailsService;
 	
 	@PostMapping("/add")
+	@ApiOperation(value = "Request to add license details")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "Created"),
+			@ApiResponse(code = 400, message = "Invalid Request"),
+			@ApiResponse(code = 500, message = "Internal Error")})
 	public ResponseEntity<DriverLicenseDetails> addDriverLicenseDetails(@RequestBody DriverLicenseDetails driverLicenseDetails) {
 		
 		DriverLicenseDetails licenseDetails = licenseDetailsService.saveDriverLicenseDetails(driverLicenseDetails);
@@ -37,6 +45,10 @@ public class DriverLicenseDetailsController {
 	}
 
 	@PutMapping("/update")
+	@ApiOperation(value = "Request to update license details")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Ok"),
+			@ApiResponse(code = 404, message = "Resource Not Found"),
+			@ApiResponse(code = 500, message = "Internal Error")})
 	public ResponseEntity<DriverLicenseDetails> changeDriverLicenseDetails(@RequestBody DriverLicenseDetails driverLicenseDetails) {
 		
 		DriverLicenseDetails licenseDetails = licenseDetailsService.updateDriverLicenseDetails(driverLicenseDetails);
@@ -44,6 +56,10 @@ public class DriverLicenseDetailsController {
 	}
 
 	@GetMapping("/get/{id}")
+	@ApiOperation(value = "Request to get license details using id")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Ok"),
+			@ApiResponse(code = 404, message = "Resource Not Found"),
+			@ApiResponse(code = 500, message = "Internal Error")})
 	public ResponseEntity<DriverLicenseDetails> fetchDriverLicenseDetails(@PathVariable("id") Integer id) {
 		
 		DriverLicenseDetails licenseDetails = licenseDetailsService.getDriverLicenseDetails(id);
@@ -51,6 +67,10 @@ public class DriverLicenseDetailsController {
 	}
 
 	@DeleteMapping("/delete/{id}")
+	@ApiOperation(value = "Request to delete license details using id")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Ok"),
+			@ApiResponse(code = 404, message = "Resource Not Found"),
+			@ApiResponse(code = 500, message = "Internal Error")})
 	public ResponseEntity<ApiResponseDto> removeDriverLicenseDetails(@PathVariable("id") Integer id) {
 		
 		licenseDetailsService.deleteDriverLicenseDetails(id);
@@ -58,6 +78,10 @@ public class DriverLicenseDetailsController {
 	}
 
 	@GetMapping("/getall")
+	@ApiOperation(value = "Request to get all license details")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Ok"),
+			@ApiResponse(code = 404, message = "Resource Not Found"),
+			@ApiResponse(code = 500, message = "Internal Error")})
 	public ResponseEntity<List<DriverLicenseDetails>> getAllDriverLicenseDetails() {
 		
 		List<DriverLicenseDetails> licenseDetailsList = licenseDetailsService.getAllDriverLicenseDetails();
@@ -65,6 +89,10 @@ public class DriverLicenseDetailsController {
 	}
 
 	@GetMapping("/get/byssn")
+	@ApiOperation(value = "Request to get license details using ssn")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Ok"),
+			@ApiResponse(code = 404, message = "Resource Not Found"),
+			@ApiResponse(code = 500, message = "Internal Error")})
 	public ResponseEntity<DriverLicenseDetails> getLicenseDetailsBySsn(@RequestParam("ssn") String ssn) {
 		
 		DriverLicenseDetails licenseDetails = licenseDetailsService.getLicenseDetailsBySsn(ssn);
@@ -72,6 +100,10 @@ public class DriverLicenseDetailsController {
 	}
 
 	@GetMapping("/get/byissuedDate")
+	@ApiOperation(value = "Request to get license details using license issued date")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Ok"),
+			@ApiResponse(code = 404, message = "Resource Not Found"),
+			@ApiResponse(code = 500, message = "Internal Error")})
 	public ResponseEntity<DriverLicenseDetails> getLicenseDetailsByIssuedDate(@RequestParam("issuedDate") @DateTimeFormat(iso = ISO.DATE) LocalDate licenseIssuedDate) {
 		
 		
@@ -81,6 +113,10 @@ public class DriverLicenseDetailsController {
 	}
 
 	@GetMapping("/get/byissuedState")
+	@ApiOperation(value = "Request to get license details using license issuing state")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Ok"),
+			@ApiResponse(code = 404, message = "Resource Not Found"),
+			@ApiResponse(code = 500, message = "Internal Error")})
 	public ResponseEntity<List<DriverLicenseDetails>> getLicenseDetailsByIssuedState(@RequestParam("issuedState") String licenseIssuedState) {
 		
 		List<DriverLicenseDetails> licenseDetailsList = licenseDetailsService.getLicenseDetailsByIssuedState(licenseIssuedState);
@@ -88,6 +124,10 @@ public class DriverLicenseDetailsController {
 	}
 
 	@GetMapping("/get/bylincenseNumber")
+	@ApiOperation(value = "Request to get license details using license number")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Ok"),
+			@ApiResponse(code = 404, message = "Resource Not Found"),
+			@ApiResponse(code = 500, message = "Internal Error")})
 	public ResponseEntity<DriverLicenseDetails> getLicenseDetailsByLicenseNumber(@RequestParam("lincenseNumber") String licenseNumber) {
 		
 		DriverLicenseDetails licenseDetails = licenseDetailsService.getLicenseDetailsByLicenseNumber(licenseNumber);
